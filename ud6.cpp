@@ -2,69 +2,43 @@
 #include <string>
 using namespace std;
 
-#include<iostream>
-using namespace std;
-
-//The cats class that we used earlier in the lesson.
-class Cats
+class Dog
 {
-    string name;
-    string breed;
-    int age;
-public:
-    Cats(); //declaring the constructor
-    void setName(string nameIn);
-    void setBreed(string breedIn);
-    void setAge(int ageIn);
-    string getName();
-    string getBreed();
-    int getAge();
-    void printInfo();
+    private:
+        int license;
+    public:
+        Dog();
+        Dog(int licenseIn);
+        void setLicense(int licenseIn);
+        int getLicense();
+        ~Dog();
 };
-//defining the constructor
-Cats::Cats()
+
+Dog::Dog()
 {
-    cout<<"Assigning inital values in the constructor\n\n";
-    name = "Unknown";
-    breed = "Unknown"; //the initial value of the breed
-    age = 99; //the initial value of the age
-}
-void Cats::setName(string nameIn)
-{
-    name = nameIn;
+   license = 0;
 }
 
-void Cats::setBreed(string breedIn)
+Dog::~Dog()
 {
-    breed = breedIn;
+    cout<<"\nDeleting the dog";
+}
+Dog::Dog(int licenseIn)
+{
+   license = licenseIn;
+}
+void Dog::setLicense(int licenseIn)
+{
+    license = licenseIn;
+}
+int Dog::getLicense()
+{
+    return license;
 }
 
-void Cats::setAge(int ageIn)
-{
-    age = ageIn;
-}
-string Cats::getName()
-{
-    return name;
-}
-string Cats::getBreed()
-{
-    return breed;
-}
-int Cats::getAge()
-{
-    return age;
-}
-void Cats::printInfo()
-{
-    cout<<name<<" "<<breed<<" "<<age;
-}
-
-//+++++++
 int main()
 {
-    Cats cat1;
-    cout<<"Cat1 information: ";
-    cat1.printInfo();
+    Dog d2(666666);
+    cout<<d2.getLicense();
     return 0;
 }
